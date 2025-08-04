@@ -202,6 +202,8 @@ export const apiClientConfigurationSchema = z.object({
   searchHotKey: searchHotKeyEnum.optional(),
   /** List of OpenAPI server objects */
   servers: z.array(z.any()).optional(), // Using any for OpenAPIV3_1.ServerObject
+  /** List of header names where the values are shared across methods */
+  sharedHeaders: z.array(z.string()).optional(),
   /**
    * Whether to show the sidebar
    * @default true

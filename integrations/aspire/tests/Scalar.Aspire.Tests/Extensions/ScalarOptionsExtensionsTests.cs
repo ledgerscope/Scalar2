@@ -30,6 +30,8 @@ public class ScalarOptionsExtensionsTests
             .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient)
             .AddServer("https://example.com")
             .AddServer(new ScalarServer("https://example.org", "My other server"))
+            .AddSharedHeaderName('Accept')
+            .AddSharedHeaderName('tenantId')
             .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient)
             .WithClientButton(false)
             .AddDocument("v1", "Version 1")
@@ -60,6 +62,9 @@ public class ScalarOptionsExtensionsTests
         options.Servers.Should().HaveCount(2);
         options.Servers.Should().ContainSingle(x => x.Url == "https://example.com");
         options.Servers.Should().ContainSingle(x => x.Url == "https://example.org" && x.Description == "My other server");
+        options.SharedHeaders.Should().HaveCount(2);
+        options.SharedHeaders.Should().ContainSingle(x => x === 'Accept');
+        options.SharedHeaders.Should().ContainSingle(x => x === 'tenantId');
         options.TagSorter.Should().Be(TagSorter.Alpha);
         options.OperationSorter.Should().Be(OperationSorter.Alpha);
         options.DefaultHttpClient.Should().Be(new KeyValuePair<ScalarTarget, ScalarClient>(ScalarTarget.CSharp, ScalarClient.HttpClient));

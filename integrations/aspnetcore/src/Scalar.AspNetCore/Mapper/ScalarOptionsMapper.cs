@@ -47,6 +47,7 @@ internal static class ScalarOptionsMapper
             CustomCss = options.CustomCss,
             SearchHotKey = options.SearchHotKey,
             Servers = options.Servers,
+            SharedHeaders = options.SharedHeaders,
             MetaData = options.Metadata,
             Authentication = options.Authentication,
             TagsSorter = options.TagSorter?.ToStringFast(true),

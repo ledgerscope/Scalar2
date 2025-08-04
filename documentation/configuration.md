@@ -578,6 +578,16 @@ You can listen to changes with onServerChange that runs on server change
 }
 ```
 
+### sharedHeaders?: string[]
+
+By default, any header value you set in the API client is set for that method only.  For some headers, e.g. a tenant ID or the Accept header, it may help if setting it for one method sets it for all methods that have a header of that same name.  With this setting you can stipulate which header values are shared, by name.  Wildcard character '*' is supported at the start and end of the name.
+
+```js
+{
+  sharedHeaders: ['Accept', 'tenantId', 'user*']
+}
+```
+
 ### authentication?: AuthenticationConfiguration
 
 To make authentication easier you can prefill the credentials for your users:
