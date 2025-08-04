@@ -164,6 +164,12 @@ public abstract class ScalarOptions
     public IList<ScalarServer>? Servers { get; set; }
 
     /// <summary>
+    /// Gets or sets the list of header names whose values are shared across methods.
+    /// </summary>
+    /// <value>The default value is <c>null</c>.</value>
+    public IList<string>? SharedHeaders { get; set; }
+
+    /// <summary>
     /// Gets or sets whether the client button from the reference sidebar should be hidden.
     /// </summary>
     /// <value>The default value is <c>false</c>.</value>

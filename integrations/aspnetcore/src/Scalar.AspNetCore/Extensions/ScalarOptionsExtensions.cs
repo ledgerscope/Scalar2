@@ -298,6 +298,19 @@ public static class ScalarOptionsExtensions
     }
 
     /// <summary>
+    /// Adds a name of a header whose value is to be shared across methods in the API client.
+    /// </summary>
+    /// <param name="options">The <see cref="ScalarOptions" /> to configure.</param>
+    /// <param name="headerName">The name of the header whose value is to be shared.</param>
+    /// <returns>The <see cref="ScalarOptions" /> so that additional calls can be chained.</returns>
+    public static TOptions AddSharedHeader<TOptions>(this TOptions options, string headerName) where TOptions : ScalarOptions
+    {
+        options.SharedHeaders ??= new List<string>();
+        options.SharedHeaders.Add(headerName);
+        return options;
+    }
+
+    /// <summary>
     /// Adds a server to the list of servers in the <see cref="ScalarOptions" /> using a URL.
     /// </summary>
     /// <param name="options">The <see cref="ScalarOptions" /> to configure.</param>

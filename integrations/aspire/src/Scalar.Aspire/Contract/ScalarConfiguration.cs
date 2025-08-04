@@ -28,6 +28,8 @@ internal sealed class ScalarConfiguration
 
     public required IEnumerable<ScalarServer>? Servers { get; init; }
 
+    public required IEnumerable<string>? SharedHeaders { get; init; }
+
     public required IDictionary<string, string>? MetaData { get; init; }
 
     public required DefaultHttpClient? DefaultHttpClient { get; init; }

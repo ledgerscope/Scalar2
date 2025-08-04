@@ -201,6 +201,12 @@ public sealed class ScalarOptions
     public IList<ScalarServer>? Servers { get; set; }
 
     /// <summary>
+    /// Gets or sets the list of header names whose values are shared across methods.
+    /// </summary>
+    /// <value>The default value is <c>null</c>.</value>
+    public IList<string>? SharedHeaders { get; set; }
+
+    /// <summary>
     /// Gets or sets whether to expose 'dotnet' flag to the configuration.
     /// </summary>
     /// <value>The default value is <c>true</c>.</value>

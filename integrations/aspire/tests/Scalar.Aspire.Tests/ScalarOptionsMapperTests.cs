@@ -23,6 +23,7 @@ public class ScalarOptionsMapperTests
         configuration.CustomCss.Should().BeNull();
         configuration.SearchHotKey.Should().BeNull();
         configuration.Servers.Should().BeNull();
+        configuration.SharedHeaders.Should().BeNull();
         configuration.MetaData.Should().BeNull();
         configuration.DefaultHttpClient!.TargetKey.Should().Be("shell");
         configuration.DefaultHttpClient!.ClientKey.Should().Be("curl");
