@@ -303,7 +303,7 @@ public static class ScalarOptionsExtensions
     /// <param name="options">The <see cref="ScalarOptions" /> to configure.</param>
     /// <param name="headerName">The name of the header whose value is to be shared.</param>
     /// <returns>The <see cref="ScalarOptions" /> so that additional calls can be chained.</returns>
-    public static TOptions AddSharedHeader<TOptions>(this TOptions options, string headerName) where TOptions : ScalarOptions
+    public static ScalarOptions AddSharedHeader(this ScalarOptions options, string headerName)
     {
         options.SharedHeaders ??= new List<string>();
         options.SharedHeaders.Add(headerName);
