@@ -11,6 +11,7 @@ import { useAnalytics } from '@/hooks/useAnalytics'
 import { useClientConfig } from '@/hooks/useClientConfig'
 import { useSidebar } from '@/hooks/useSidebar'
 import { ERRORS } from '@/libs'
+import { shareTenantId } from '@/libs/ls-share-tenant-id'
 import { createRequestOperation } from '@/libs/send-request'
 import type { SendRequestResult } from '@/libs/send-request/create-request-operation'
 import { validateParameters } from '@/libs/validate-parameters'
@@ -129,6 +130,9 @@ const executeRequest = async () => {
     // We need to deep clone the result because it's a ref and updates will break the history
     requestHistory.push(cloneRequestResult(result))
   }
+
+  const allExamples = Object.values(workspaceContext.requestExamples)
+  shareTenantId(activeExample.value, allExamples)
 }
 
 /** Cancel a live request */
